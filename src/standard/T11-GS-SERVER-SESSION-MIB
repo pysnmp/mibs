@@ -37,7 +37,7 @@ t11GsServerSessionMIB  MODULE-IDENTITY
     REVISION  "200510130000Z"
     DESCRIPTION
             "Initial version of this MIB."
-    ::= { mib-2 nnn } -- to be determined later
+    ::= { mib-2 1 } -- to be determined later
 
 t11GssMIBObjects       OBJECT IDENTIFIER ::= { t11GsServerSessionMIB 1 }
 t11GssMIBConformance   OBJECT IDENTIFIER ::= { t11GsServerSessionMIB 2 }
@@ -314,4 +314,3 @@ END
 -- 
 --    Funding for the RFC Editor function is currently provided by the
 --    Internet Society.
-

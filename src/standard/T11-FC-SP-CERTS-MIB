@@ -56,7 +56,7 @@ t11FcSpCertsMIB  MODULE-IDENTITY
     DESCRIPTION
            "Initial version of this MIB module, published as RFCyyyy."
 -- RFC-Editor, replace yyyy with actual RFC number & remove this note
-    ::= { mib-2 nnn }  -- to be assigned by IANA
+    ::= { mib-2 1 }  -- to be assigned by IANA
 -- RFC Editor: replace nnn with IANA-assigned number & remove this note
 
 t11FcSpCertsMIBObjects     OBJECT IDENTIFIER ::= { t11FcSpCertsMIB 1 }
@@ -236,4 +236,3 @@ END
 -- 
 --    Funding for the RFC Editor function is currently provided by the
 --    Internet Society.
-

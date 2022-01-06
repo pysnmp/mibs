@@ -40,11 +40,9 @@ t11ZoneServerMIB  MODULE-IDENTITY
                   170 West Tasman Drive
                   San Jose, CA 95134 USA
                   EMail: kzm@cisco.com"
-
     DESCRIPTION
            "The MIB module for the management of Fibre Channel Zoning
            Servers, both for Basic Zoning Management and for Enhanced
-
 
            Zoning Management, as defined in the FC-GS-5 specification.
 
@@ -95,8 +93,6 @@ t11ZoneServerMIB  MODULE-IDENTITY
            particular switch, but the changes take immediate effect at
            that switch without an explicit commit.  The distribution of
 
-
-
            those changes to Zone Servers on other switches in the
            Fabric is subsequently requested through the use of a
            separate set of MIB objects.
@@ -145,8 +141,6 @@ T11ZsZoneMemberType ::= TEXTUAL-CONVENTION
                 06 - F_Port_Name
                 E0-FF (hex) - Vendor Specific.
            "
-
-
     REFERENCE
            "Fibre Channel - Generic Services-5 (FC-GS-5),
            ANSI INCITS 427-2007, section 6.4.8.3.6."
@@ -196,7 +190,6 @@ T11ZsRejectReasonExplanation ::= TEXTUAL-CONVENTION
               'aliasExists'
                   - Zone Alias already exists
 
-
               'zoneSetUnknown'
                   - Zone Set unknown
               'zoneUnknown'
@@ -245,8 +238,6 @@ T11ZsRejectReasonExplanation ::= TEXTUAL-CONVENTION
                       zoneSetExists(16),
                       zoneExists(17),
                       aliasExists(18),
-
-
                       zoneSetUnknown(19),
                       zoneUnknown(20),
                       aliasUnknown(21),
@@ -294,8 +285,6 @@ t11ZsServerTable OBJECT-TYPE
            the capability to perform operations on their Zone
            Server databases."
     ::= { t11ZsConfiguration 1 }
-
-
 
 t11ZsServerEntry OBJECT-TYPE
     SYNTAX       T11ZsServerEntry
@@ -345,9 +334,6 @@ t11ZsServerFabricIndex OBJECT-TYPE
     ::= { t11ZsServerEntry 1 }
 
 t11ZsServerCapabilityObject OBJECT-TYPE
-
-
-
     SYNTAX        BITS {
                       enhancedMode(0),
                       zoneSetDb(1),
@@ -397,7 +383,6 @@ t11ZsServerDatabaseStorageType OBJECT-TYPE
            this object that is INDEXed by the same values of
            fcmInstanceIndex, fcmSwitchIndex, and
 
-
            t11ZsServerFabricIndex.
 
            The value of this object is also used to indicate
@@ -446,8 +431,6 @@ t11ZsServerCommit OBJECT-TYPE
                   }
     MAX-ACCESS    read-write
     STATUS        current
-
-
     DESCRIPTION
             "This object is only used in Enhanced mode.
 
@@ -496,7 +479,6 @@ t11ZsServerResult OBJECT-TYPE
              'none'          - no distribution/commit invoked
                                via the corresponding instance of
                                t11ZsZoneSetDistribute (Basic mode)
-
 
                                or t11ZsServerCommit (Enhanced mode).
              'inProgress'    - distribution/commit is still in
@@ -547,8 +529,6 @@ t11ZsServerReasonCodeExp OBJECT-TYPE
            When the corresponding instance of t11ZsServerResult
            has a value other than 'rejectFailure', this object
 
-
-
            should contain the zero-length string."
     REFERENCE
            "Fibre Channel - Switch Fabric-4 (FC-SW-4),
@@ -597,9 +577,6 @@ t11ZsServerHardZoning OBJECT-TYPE
     REFERENCE
            "Fibre Channel - Generic Services-5 (FC-GS-5),
            ANSI INCITS 427-2007, section 6.4.10.3.2."
-
-
-
     ::= { t11ZsServerEntry 11 }
 
 t11ZsServerReadFromDatabase OBJECT-TYPE
@@ -649,8 +626,6 @@ t11ZsServerOperationMode OBJECT-TYPE
            such a set may fail while operating in Enhanced mode,
            since FC-GS-5 makes no provision for changing (back)
 
-
-
            to Basic mode.
 
            Note that setting this object does not cause or require
@@ -698,9 +673,6 @@ t11ZsServerDefaultZoneSetting OBJECT-TYPE
            If this object is set to 'permit', then the members of
            the Default Zone on this Fabric can communicate with
            each other.
-
-
-
 
            If this object is set to 'deny', then the members of the
            Default Zone on this Fabric cannot communicate with each
@@ -750,9 +722,6 @@ t11ZsServerDefZoneBroadcast OBJECT-TYPE
            Default Zone will be restricted to members in that
            Default Zone."
     REFERENCE
-
-
-
            "Fibre Channel - Generic Services-5 (FC-GS-5),
            ANSI INCITS 427-2007, section 6.4.7.2.2."
     ::= { t11ZsServerEntry 17 }
@@ -801,9 +770,6 @@ t11ZsSetEntry  OBJECT-TYPE
 
            The StorageType of a row in this table is specified by
            the instance of t11ZsServerDatabaseStorageType that is
-
-
-
            INDEXed by the same values of fcmInstanceIndex,
            fcmSwitchIndex, and t11ZsServerFabricIndex."
     INDEX   { fcmInstanceIndex, fcmSwitchIndex,
@@ -850,10 +816,6 @@ t11ZsSetRowStatus OBJECT-TYPE
            corresponding value of t11ZsSetName is unique within
            the Fabric's Zone Server database on this switch."
     ::= { t11ZsSetEntry 3 }
-
-
-
-
 
 --
 -- The table of Zones
@@ -903,9 +865,6 @@ t11ZsZoneEntry OBJECT-TYPE
 T11ZsZoneEntry ::= SEQUENCE {
     t11ZsZoneIndex             Unsigned32,
     t11ZsZoneName              T11ZoningName,
-
-
-
     t11ZsZoneAttribBlock       Unsigned32,
     t11ZsZoneRowStatus         RowStatus
 }
@@ -955,8 +914,6 @@ t11ZsZoneRowStatus OBJECT-TYPE
 
            This object cannot be set to 'active' unless the
 
-
-
            corresponding value of t11ZsZoneName is unique within
            the Fabric's Zone Server database on this switch."
     ::= { t11ZsZoneEntry 4 }
@@ -1005,9 +962,6 @@ t11ZsSetZoneEntry  OBJECT-TYPE
 
            The StorageType of a row in this table is specified by
            the instance of t11ZsServerDatabaseStorageType that is
-
-
-
            INDEXed by the same values of fcmInstanceIndex,
            fcmSwitchIndex, and t11ZsServerFabricIndex."
     INDEX   { fcmInstanceIndex, fcmSwitchIndex,
@@ -1057,8 +1011,6 @@ t11ZsAliasEntry OBJECT-TYPE
            the Zone Set database of a particular Fabric
            (identified by the value of t11ZsServerFabricIndex) on
 
-
-
            a particular switch (identified by values of
            fcmInstanceIndex and fcmSwitchIndex).
 
@@ -1107,9 +1059,6 @@ t11ZsAliasIndex OBJECT-TYPE
 t11ZsAliasName OBJECT-TYPE
     SYNTAX       T11ZoningName
     MAX-ACCESS   read-create
-
-
-
     STATUS       current
     DESCRIPTION
            "The name of this Zone Alias.  The name of the Zone
@@ -1158,9 +1107,6 @@ t11ZsZoneMemberTable  OBJECT-TYPE
 t11ZsZoneMemberEntry OBJECT-TYPE
     SYNTAX       T11ZsZoneMemberEntry
     MAX-ACCESS   not-accessible
-
-
-
     STATUS       current
     DESCRIPTION
            "Each entry represents the relationship between a
@@ -1209,9 +1155,6 @@ t11ZsZoneMemberParentType  OBJECT-TYPE
                      zone(1), -- member belongs to a Zone
                      alias(2) -- member belongs to a Zone Alias
                  }
-
-
-
     MAX-ACCESS   not-accessible
     STATUS       current
     DESCRIPTION
@@ -1261,8 +1204,6 @@ t11ZsZoneMemberFormat OBJECT-TYPE
            value of t11ZsZoneMemberRowStatus object is 'active'."
     ::= { t11ZsZoneMemberEntry 4 }
 
-
-
 t11ZsZoneMemberID OBJECT-TYPE
     SYNTAX       OCTET STRING (SIZE (1..255))
     MAX-ACCESS   read-create
@@ -1310,9 +1251,6 @@ t11ZsZoneMemberRowStatus OBJECT-TYPE
     STATUS       current
     DESCRIPTION
            "The status of this conceptual row.
-
-
-
 
            The corresponding instances of t11ZsZoneMemberID and
            t11ZsZoneMemberFormat objects must be set before or
@@ -1362,9 +1300,6 @@ t11ZsAttribBlockEntry OBJECT-TYPE
            The StorageType of a row in this table is specified by
            the instance of t11ZsServerDatabaseStorageType that is
            INDEXed by the same values of fcmInstanceIndex,
-
-
-
            fcmSwitchIndex, and t11ZsServerFabricIndex."
     INDEX   { fcmInstanceIndex, fcmSwitchIndex,
               t11ZsServerFabricIndex, t11ZsAttribBlockIndex }
@@ -1402,19 +1337,6 @@ t11ZsAttribBlockRowStatus OBJECT-TYPE
     DESCRIPTION
            "The status of this conceptual row."
     ::= { t11ZsAttribBlockEntry 3 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 --
 -- The table of Zone Attributes
@@ -1465,8 +1387,6 @@ t11ZsAttribEntry OBJECT-TYPE
 
 T11ZsAttribEntry ::= SEQUENCE {
 
-
-
     t11ZsAttribIndex            Unsigned32,
     t11ZsAttribType             Unsigned32,
     t11ZsAttribValue            OCTET STRING,
@@ -1516,8 +1436,6 @@ t11ZsAttribValue  OBJECT-TYPE
            ANSI INCITS 427-2007, section 6.4.8.3.8."
     ::= { t11ZsAttribEntry 3 }
 
-
-
 t11ZsAttribRowStatus OBJECT-TYPE
     SYNTAX       RowStatus
     MAX-ACCESS   read-create
@@ -1566,9 +1484,6 @@ t11ZsActivateRequest OBJECT-TYPE
     MAX-ACCESS   read-write
     STATUS       current
     DESCRIPTION
-
-
-
            "Setting this object to a value is a request for a
            Zone Set to be activated on the Fabric that is
            represented by this row.  The Zone Set to be
@@ -1617,9 +1532,6 @@ t11ZsActivateResult OBJECT-TYPE
     MAX-ACCESS   read-only
     STATUS       current
     DESCRIPTION
-
-
-
            "This object indicates the outcome of the most recent
            activation/deactivation using this entry.
 
@@ -1661,15 +1573,6 @@ t11ZsActivateFailDomainId OBJECT-TYPE
            device, this object contains the Domain_ID of that
            device.  Otherwise, this object contains zero."
     ::= { t11ZsActivateEntry 5 }
-
-
-
-
-
-
-
-
-
 
 --
 -- t11ZsActiveTable
@@ -1719,9 +1622,6 @@ t11ZsActiveActivateTime OBJECT-TYPE
     MAX-ACCESS   read-only
     STATUS       current
     DESCRIPTION
-
-
-
            "The value of sysUpTime at which this entry was most
            recently activated.  If this row was activated prior to
            the last re-initialization of the local network management
@@ -1771,8 +1671,6 @@ t11ZsActiveZoneIndex  OBJECT-TYPE
            within the active Zone Set on a particular Fabric."
     ::= { t11ZsActiveZoneEntry 1 }
 
-
-
 t11ZsActiveZoneName OBJECT-TYPE
     SYNTAX       T11ZoningName
     MAX-ACCESS   read-only
@@ -1821,9 +1719,6 @@ t11ZsActiveZoneMemberTable OBJECT-TYPE
 t11ZsActiveZoneMemberEntry OBJECT-TYPE
     SYNTAX       T11ZsActiveZoneMemberEntry
     MAX-ACCESS   not-accessible
-
-
-
     STATUS       current
     DESCRIPTION
            "Each entry represents a member of a Zone in the active
@@ -1870,10 +1765,6 @@ t11ZsActiveZoneMemberID OBJECT-TYPE
            using the format specified in the corresponding
            instance of t11ZsActiveZoneMemberFormat."
     ::= { t11ZsActiveZoneMemberEntry 3 }
-
-
-
-
 
 --
 -- Zone Attributes in the Active/Enforced Zone Set
@@ -1923,9 +1814,6 @@ T11ZsActiveAttribEntry ::= SEQUENCE {
 t11ZsActiveAttribIndex  OBJECT-TYPE
     SYNTAX       Unsigned32 (1..4294967295)
     MAX-ACCESS   not-accessible
-
-
-
     STATUS       current
     DESCRIPTION
            "An index value that uniquely identifies this
@@ -1972,10 +1860,6 @@ t11ZsActiveAttribValue  OBJECT-TYPE
            "Fibre Channel - Generic Services-5 (FC-GS-5),
            ANSI INCITS 427-2007, section 6.4.8.3.8."
     ::= { t11ZsActiveAttribEntry 3 }
-
-
-
-
 
 --
 -- Zone Server Statistics
@@ -2026,8 +1910,6 @@ t11ZsOutMergeRequests OBJECT-TYPE
 
            This counter has no discontinuities other than those
 
-
-
            that all Counter32s have when sysUpTime=0."
     ::= { t11ZsStatsEntry 1 }
 
@@ -2075,9 +1957,6 @@ t11ZsOutChangeRequests OBJECT-TYPE
            "The number of change requests sent (via the Fabric
            Management Session Protocol) by this Zone Server to
            other Zone Servers in the same Fabric.
-
-
-
 
            This includes Acquire Change Authorization requests, Stage
            Fabric Config Update requests, Update Fabric Config requests
@@ -2128,8 +2007,6 @@ t11ZsInChangeRequests OBJECT-TYPE
            This includes Acquire Change Authorization requests, Stage
            Fabric Config Update requests, Update Fabric Config requests
 
-
-
            and Release Change Authorization requests.  It also includes
            the corresponding types of requests defined by the Enhanced
            Commit Service.
@@ -2177,9 +2054,6 @@ t11ZsInZsRequests OBJECT-TYPE
            This counter has no discontinuities other than those
            that all Counter32s have when sysUpTime=0."
     ::= { t11ZsStatsEntry 9 }
-
-
-
 
 t11ZsOutZsRejects OBJECT-TYPE
     SYNTAX       Counter32
@@ -2229,9 +2103,6 @@ t11ZsNotifyControlEntry OBJECT-TYPE
 
 T11ZsNotifyControlEntry ::= SEQUENCE {
      t11ZsNotifyRequestRejectEnable    TruthValue,
-
-
-
      t11ZsNotifyMergeFailureEnable     TruthValue,
      t11ZsNotifyMergeSuccessEnable     TruthValue,
      t11ZsNotifyDefZoneChangeEnable    TruthValue,
@@ -2281,8 +2152,6 @@ t11ZsNotifyDefZoneChangeEnable OBJECT-TYPE
            "This object specifies whether t11ZsDefZoneChangeNotify
            notifications should be generated by the Zone Server
 
-
-
            for this Fabric."
     ::= { t11ZsNotifyControlEntry 4 }
 
@@ -2331,9 +2200,6 @@ t11ZsRejectReasonCode OBJECT-TYPE
     MAX-ACCESS   read-only
     STATUS       current
     DESCRIPTION
-
-
-
            "The reason code corresponding to the most recent
            rejection of a request by the Zone Server for
            this Fabric."
@@ -2371,19 +2237,6 @@ t11ZsFabricIndex OBJECT-TYPE
            generated, or it has the value 4096 to indicate
            all applicable Fabrics."
     ::= { t11ZsConfiguration 15 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 -- Notifications
 
@@ -2434,8 +2287,6 @@ t11ZsMergeSuccessNotify NOTIFICATION-TYPE
            If multiple Virtual Fabrics are configured on an
            interface, and all have a successful Zone Merge
 
-
-
            at the same time, then just one notification is
            generated and t11ZsFabricIndex has the value 4096."
     ::= { t11ZsMIBNotifications 3 }
@@ -2485,8 +2336,6 @@ t11ZsMIBCompliance MODULE-COMPLIANCE
            "Only entities that provide write access for
            activating a Zone Set support need to support
 
-
-
            this group."
 
     GROUP        t11ZsStatisticsGroup
@@ -2535,9 +2384,6 @@ t11ZsMIBCompliance MODULE-COMPLIANCE
     SYNTAX       INTEGER { active(1) }
     MIN-ACCESS   read-only
     DESCRIPTION
-
-
-
            "Write access is not required."
 
     OBJECT       t11ZsServerDatabaseStorageType
@@ -2586,9 +2432,6 @@ t11ZsMIBCompliance MODULE-COMPLIANCE
            "Write access is not required."
 
     OBJECT       t11ZsZoneName
-
-
-
     MIN-ACCESS   read-only
     DESCRIPTION
            "Write access is not required."
@@ -2638,8 +2481,6 @@ t11ZsMIBCompliance MODULE-COMPLIANCE
     DESCRIPTION
            "Write access is not required."
 
-
-
     OBJECT       t11ZsNotifyRequestRejectEnable
     MIN-ACCESS   read-only
     DESCRIPTION
@@ -2664,7 +2505,6 @@ t11ZsMIBCompliance MODULE-COMPLIANCE
     MIN-ACCESS   read-only
     DESCRIPTION
            "Write access is not required."
-
     ::= { t11ZsMIBCompliances 1 }
 
 -- Units of Conformance
@@ -2688,9 +2528,6 @@ t11ZsBasicGroup OBJECT-GROUP
                t11ZsZoneRowStatus,
                t11ZsSetZoneRowStatus,
                t11ZsZoneMemberFormat,
-
-
-
                t11ZsZoneMemberID,
                t11ZsZoneMemberRowStatus,
                t11ZsActiveZoneSetName,
@@ -2739,9 +2576,6 @@ t11ZsStatisticsGroup OBJECT-GROUP
                t11ZsOutChangeRequests,
                t11ZsInChangeAccepts,
                t11ZsInChangeRequests,
-
-
-
                t11ZsOutChangeAccepts,
                t11ZsInZsRequests,
                t11ZsOutZsRejects
@@ -2790,9 +2624,6 @@ t11ZsActivateGroup OBJECT-GROUP
 t11ZsNotificationGroup NOTIFICATION-GROUP
     NOTIFICATIONS { t11ZsRequestRejectNotify,
                     t11ZsMergeFailureNotify,
-
-
-
                     t11ZsMergeSuccessNotify,
                     t11ZsDefZoneChangeNotify,
                     t11ZsActivateNotify }

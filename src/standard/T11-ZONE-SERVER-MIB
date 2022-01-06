@@ -89,7 +89,7 @@ t11ZoneServerMIB  MODULE-IDENTITY
     DESCRIPTION
            "Initial version of this MIB module, published as RFCyyyy."
 -- RFC-Editor, replace yyyy with actual RFC number & remove this note
-    ::= { mib-2 XXX }  -- to be assigned by IANA
+    ::= { mib-2 1 }  -- to be assigned by IANA
 -- RFC Editor: replace XXX with IANA-assigned number & remove this note
 
 
@@ -2506,4 +2506,3 @@ END
 -- 
 --    Funding for the RFC Editor function is currently provided by the
 --    Internet Society.
-
