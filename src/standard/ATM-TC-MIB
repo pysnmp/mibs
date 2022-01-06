@@ -1,3 +1,13 @@
+-- *****************************************************************
+-- ATM TC MIB
+--
+-- October 2002, Srikar B S
+--
+-- Copyright (c) 2002 by cisco Systems, Inc.
+-- All rights reserved.
+-- *****************************************************************
+--
+-- This mib is extracted from RFC 2514
 
      ATM-TC-MIB DEFINITIONS ::= BEGIN
 

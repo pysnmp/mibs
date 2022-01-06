@@ -1,3 +1,26 @@
+-- **********************************************************
+-- Airespace Wireless MIB
+-- Copyright 2005, 2010 Cisco Systems Inc. All rights reserved.
+--   
+-- This SNMP Management Information Specification
+-- embodies Cisco's confidential and proprietary
+-- intellectual property.  Cisco retains all title
+-- and ownership in the Specification including any revisions.
+--   
+-- This Specification is supplied "AS IS", Cisco
+-- makes no warranty, either expressed or implied,
+-- as to the use, operation, condition, or performance of the
+-- Specification.
+--   
+
+-- Status: Release
+-- Version: 4.0
+-- Internal Source Code Version:1.268
+-- Date: 01 Jan 2006
+-- **********************************************************
+
+
+
 AIRESPACE-WIRELESS-MIB DEFINITIONS ::= BEGIN
 
 IMPORTS
@@ -25,6 +48,7 @@ IMPORTS
         FROM SNMPv2-TC
     airespace
         FROM AIRESPACE-REF-MIB;
+
 
 -- ********************************************************************
 -- *  MODULE IDENTITY
@@ -82,6 +106,7 @@ bsnWireless MODULE-IDENTITY
         +  MN  + +  MN  +     +  MN  +      +  MN  +          +  MN  +
         +      + +      +     +      +      +      +          +      +
         +......+ +......+     +......+      +......+          +......+
+
 
         The LWAPP tunnel exists between the controller and
         the APs.  The MNs communicate with the APs through
@@ -141,6 +166,7 @@ bsnWireless MODULE-IDENTITY
         802.11 protocol operations by the AP to work
         cooperatively with the other APs and 802.11
         devices in the network.
+
         REFERENCE
 
         [1] Part 11 Wireless LAN Medium Access Control ( MAC )
@@ -243,6 +269,7 @@ bsnWireless MODULE-IDENTITY
         bsnAPDown,
         bsnWrasObsTrap,
         bsnWrasTrap,        
+
         Deprecated:-
         bsnGlobalDot11CountryIndex,
         bsnGlobalDot11LoadBalancing,
@@ -271,6 +298,7 @@ bsnWireless MODULE-IDENTITY
     DESCRIPTION
         "Airespace MIB"
     ::= { airespace 2 }
+
 
 -- *******************************************************************
 -- *  Major sections
@@ -349,6 +377,7 @@ bsnWrasGroups  OBJECT IDENTIFIER
 
 bsnWrasCompliances  OBJECT IDENTIFIER
     ::= { bsnWireless 51 }
+
 
 WEPKeytype ::= TEXTUAL-CONVENTION
     STATUS          current
@@ -1389,6 +1418,7 @@ bsnDot11EssRadiusAcctTertiaryServer OBJECT-TYPE
     DESCRIPTION
         "Tertiary Radius Accounting Server for this wlan." 
     ::= { bsnDot11EssEntry 100 }
+ 
 
 -- ***************************************************************
 -- * QOS Profile Table
@@ -1535,6 +1565,7 @@ bsnDot11ResetProfileToDefault OBJECT-TYPE
         "Set this attribute to reset to restore the factory default
         value for the profile." 
     ::= { bsnDot11QosProfileEntry 40 }
+ 
 
 -- ***************************************************************
 -- * Mobile Station Index Table
@@ -2028,6 +2059,7 @@ bsnMobileStationStatusCode OBJECT-TYPE
     DESCRIPTION
         "Status Code of the Mobile Station" 
     ::= { bsnMobileStationEntry 42 }
+ 
 
 -- ***************************************************************
 -- * Mobile Station Table Indexed by Mobile Station IpAddress
@@ -2074,6 +2106,7 @@ bsnMobileStationByIpMacAddress OBJECT-TYPE
     DESCRIPTION
         "802.11 Mac Address of the Mobile Station." 
     ::= { bsnMobileStationByIpEntry 2 }
+ 
 
 -- ***************************************************************
 -- * Mobile Station Table Indexed by Mobile Station Username and MAC
@@ -2124,6 +2157,7 @@ bsnMobileStationByUserMacAddress OBJECT-TYPE
     DESCRIPTION
         "802.11 Mac Address of the Mobile Station." 
     ::= { bsnMobileStationByUsernameEntry 2 }
+ 
 
 -- *****************************************************************
 -- *  Airespace Mobile Station Per Radio Per Vap Table
@@ -2180,6 +2214,7 @@ bsnMobileStationMacAddr OBJECT-TYPE
     DESCRIPTION
         "The MAC Address of Mobile Station." 
     ::= { bsnMobileStationPerRadioPerVapEntry 20 }
+ 
 
 -- *******************************************************************
 -- * Begin of bsnMobileStationStatsTable
@@ -2269,6 +2304,7 @@ bsnMobileStationSnr OBJECT-TYPE
     DESCRIPTION
         "Signal to noise Ratio of the Mobile Station." 
     ::= { bsnMobileStationStatsEntry 26 }
+ 
 
 -- *******************************************************************
 -- * Begin of bsnMobileStationExtStatsTable
@@ -2334,6 +2370,7 @@ bsnMobileStationTxFiltered OBJECT-TYPE
     DESCRIPTION
         "Tx packets dropped by the built-in Tx filter" 
     ::= { bsnMobileStationExtStatsEntry 20 }
+ 
 
 -- ***************************************************************
 -- * Mobile Station RSSI data Table
@@ -2440,6 +2477,7 @@ bsnMobileStationRssiDataLastHeard OBJECT-TYPE
     DESCRIPTION
         "No of seconds ago when this RSSI data was recorded." 
     ::= { bsnMobileStationRssiDataEntry 25 }
+ 
 
 -- ***************************************************************
 -- * RF ID Tag Table
@@ -2517,6 +2555,7 @@ bsnTagLastReported OBJECT-TYPE
     DESCRIPTION
         "No of seconds ago when this tag was heard by any AP." 
     ::= { bsnTagEntry 23 }
+ 
 
 -- *******************************************************************
 -- * Begin of bsnTagStatsTable
@@ -2559,6 +2598,7 @@ bsnTagPacketsReceived OBJECT-TYPE
     DESCRIPTION
         "Packets received from an RF ID Tag" 
     ::= { bsnTagStatsEntry 20 }
+ 
 
 -- ***************************************************************
 -- * RF ID Tag Detecting AP Table
@@ -2658,6 +2698,7 @@ bsnTagRssiDataSnr OBJECT-TYPE
         "SNR of the RF ID tag as seen by the radio on this
         detecting AP." 
     ::= { bsnTagRssiDataEntry 26 }
+ 
 
 -- ********************************************************************
 -- * Begin of bsnWatchListClientTable
@@ -2722,6 +2763,7 @@ bsnWatchListClientRowStatus OBJECT-TYPE
     DESCRIPTION
         "A row status type for the bsnWatchListClientEntry" 
     ::= { bsnWatchListClientEntry 20 }
+ 
 
 -- ********************************************************************
 -- * Begin of bsnRougueAPTable
@@ -2977,6 +3019,7 @@ bsnRogueAPDetectingAPName OBJECT-TYPE
     DESCRIPTION
         "AP name of the detecting AP which received max RSSI" 
     ::= { bsnRogueAPEntry 27 }
+ 
 
 -- ********************************************************************
 -- * Begin of bsnRougueAPAirespaceAPTable
@@ -3186,6 +3229,7 @@ bsnRogueAPChannelWidth OBJECT-TYPE
     DESCRIPTION
         "This object represents the channel width of the rogue." 
     ::= { bsnRogueAPAirespaceAPEntry 28 }
+ 
 
 -- *****************************************************************
 -- *  bsnRogueClientPerRogueAPTable
@@ -3232,6 +3276,7 @@ bsnRogueClientDot11MacAddr OBJECT-TYPE
     DESCRIPTION
         "MAC Address of the Rogue Client." 
     ::= { bsnRogueClientPerRogueAPEntry 20 }
+ 
 
 -- ********************************************************************
 -- * Begin of bsnRougueClientTable
@@ -3358,6 +3403,7 @@ bsnRogueClientState OBJECT-TYPE
         Contained means containement is initiated and 
         ongoing" 
     ::= { bsnRogueClientEntry 24 }
+ 
 
 -- ********************************************************************
 -- * Begin of bsnRougueAPTable
@@ -3469,6 +3515,7 @@ bsnRogueClientAirespaceAPSNR OBJECT-TYPE
     DESCRIPTION
         "SNR seen by Airespace AP Interface from Rogue" 
     ::= { bsnRogueClientAirespaceAPEntry 27 }
+ 
 
 -- ********************************************************************
 -- * End of bsnRougueStationTable
@@ -3573,6 +3620,7 @@ bsnThirdPartyAPRowStatus OBJECT-TYPE
     DESCRIPTION
         "Row Status in the ThirdPartyAPEntry." 
     ::= { bsnThirdPartyAPEntry 24 }
+ 
 
 -- ********************************************************************
 -- *  Airespace AP Table.
@@ -3989,6 +4037,7 @@ bsnAPAdminStatus OBJECT-TYPE
     DESCRIPTION
         "Admin State of the AP" 
     ::= { bsnAPEntry 37 }
+ 
 
 -- ********************************************************************
 -- *  BSN Airespace AP Interface Table
@@ -4423,6 +4472,7 @@ bsnAPIfAdminStatus OBJECT-TYPE
     DESCRIPTION
         "Admin status of the interface." 
     ::= { bsnAPIfEntry 34 }
+ 
 
 -- *******************************************************************
 -- * End of bsnAPIfTable
@@ -4490,6 +4540,7 @@ bsnAPIfWlanOverrideRowStatus OBJECT-TYPE
     DESCRIPTION
         "A row status type for the bsnAPIfWlanOverrideEntry" 
     ::= { bsnAPIfWlanOverrideEntry 15 }
+ 
 
 -- *******************************************************************
 -- *  BSN Airespace AP Smt Param Table
@@ -4654,6 +4705,7 @@ bsnAPIfDot11CountryString OBJECT-TYPE
         1. an ASCII space character, if the regulations under
         which the AP Interface is operating encompass all
         environments in the country,
+
         2. an ASCII 'O' character, if the regulations under
         which the AP Interface is operating are for an Outdoor
         environment only, or
@@ -4683,6 +4735,7 @@ bsnAPIfDot11BSSID OBJECT-TYPE
     DESCRIPTION
         "BSSID of this AP config which would be the MAC Address of AP" 
     ::= { bsnAPIfSmtParamEntry 30 }
+ 
 
 -- ********************************************************************
 -- *  bsnAPIfMultiDomainCapabilityTable
@@ -4748,6 +4801,7 @@ bsnAPIfDot11NumberofChannels OBJECT-TYPE
         associated domain country string. The default value 
         of this attribute shall be zero." 
     ::= { bsnAPIfMultiDomainCapabilityEntry 20 }
+ 
 
 -- ********************************************************************
 -- *    bsnDot11MacOperationTable
@@ -4854,6 +4908,7 @@ bsnAPIfDot11MacMaxReceiveLifetime OBJECT-TYPE
         "If bsnAPIfMacParamsAutomaticOn is true then this is
         read only parameter updated by RRM dynamic algorithm" 
     ::= { bsnAPIfMacOperationParamEntry 25 }
+ 
 
 -- *******************************************************************
 -- * Begin of bsnAPIfDot11CountersTable
@@ -5036,6 +5091,7 @@ bsnAPIfDot11FailedCount OBJECT-TYPE
         successfully due to the number of transmit attempts exceeding
         either the  bsnAPIfDot11ShortRetryLimit or dot11LongRetryLimit." 
     ::= { bsnAPIfDot11CountersEntry 33 }
+ 
 
 -- *******************************************************************
 -- * End of bsnAPIfCountersTable
@@ -5165,6 +5221,7 @@ bsnAPIfDot11TxPowerLevel8 OBJECT-TYPE
         "The transmit output power for LEVEL8 in mW. It is 1/128th
         of the Maximum power level available on an AP interface." 
     ::= { bsnAPIfDot11PhyTxPowerEntry 28 }
+ 
 
 -- ********************************************************************
 -- *    End of bsnAPIfDot11PhyTxPowerTable
@@ -5243,6 +5300,7 @@ bsnAPIfDot11TIThreshold OBJECT-TYPE
         CCA shall report a busy medium upon detecting the RSSI above 
         this threshold." 
     ::= { bsnAPIfDot11PhyChannelEntry 23 }
+ 
 
 -- ********************************************************************
 -- *    End of bsnAPIfDot11PhyDSSSTable
@@ -5368,6 +5426,7 @@ bsnAPIfCoverageExceptionLevel OBJECT-TYPE
     DESCRIPTION
         "Airespace AP coverage exception level between 0 and 100 percent." 
     ::= { bsnAPIfProfileThresholdConfigEntry 28 }
+ 
 
 -- ********************************************************************
 -- * End of bsnAPIfProfileThresholdConfigTable
@@ -5455,6 +5514,7 @@ bsnAPIfPoorSNRClients OBJECT-TYPE
         this Airespace AP at the last measurement interval 
         ( This comes from APF )." 
     ::= { bsnAPIfLoadParametersEntry 24 }
+ 
 
 -- ********************************************************************
 -- * End of bsnAPIfLoadParametersTable
@@ -5519,6 +5579,7 @@ bsnAPIfInterferenceUtilization OBJECT-TYPE
         "Interference from other 802.11 networks on this
         channel" 
     ::= { bsnAPIfChannelInterferenceInfoEntry 22 }
+ 
 
 -- ********************************************************************
 -- * Begin of bsnAPIfRadarChannelStatisticsTable
@@ -5573,6 +5634,7 @@ bsnAPIfRadarSignalLastHeard OBJECT-TYPE
         "This tells how many seconds ago radar signal was heard
         on the channel." 
     ::= { bsnAPIfRadarChannelStatisticsEntry 2 }
+ 
 
 -- ********************************************************************
 -- * End of bsnAPIfRadarChannelInterferenceInfoTable
@@ -5628,6 +5690,7 @@ bsnAPIfDBNoisePower OBJECT-TYPE
         "This is the average noise power in dBm on
         each channel that is available to Airespace AP" 
     ::= { bsnAPIfChannelNoiseInfoEntry 21 }
+ 
 
 -- ********************************************************************
 -- * Begin of bsnAPIfProfileStateTable
@@ -5717,6 +5780,7 @@ bsnAPIfCoverageProfileState OBJECT-TYPE
         AP is not performing adequately against the coverage 
         profile." 
     ::= { bsnAPIfProfileStateEntry 24 }
+ 
 
 -- ********************************************************************
 -- * Begin of bsnAPIfRxNeighborsTable
@@ -5810,6 +5874,7 @@ bsnAPIfRxNeighborChannelWidth OBJECT-TYPE
         "This object represents Channel bandwidth information
         which neighboring Access point is using." 
     ::= { bsnAPIfRxNeighborsEntry 27 }
+ 
 
 -- *****************************************************************
 --   
@@ -6067,6 +6132,7 @@ bsnMeshNodeHops OBJECT-TYPE
     DESCRIPTION
         "number of hops to rap" 
     ::= { bsnMeshNodeEntry 30 }
+ 
 
 -- ********************************************************************
 -- * Begin of bsnMeshNeighsTable
@@ -6240,6 +6306,7 @@ bsnMeshNeighParentChange OBJECT-TYPE
     DESCRIPTION
         "when this node last became parent" 
     ::= { bsnMeshNeighsEntry 20 }
+ 
 
 -- ********************************************************************
 -- * Begin of bsnAPIfStationRSSICoverageInfoTable
@@ -6298,6 +6365,7 @@ bsnAPIfStationCountOnRSSI OBJECT-TYPE
     DESCRIPTION
         "Number of stations on this RSSI Level" 
     ::= { bsnAPIfStationRSSICoverageInfoEntry 23 }
+ 
 
 -- ********************************************************************
 -- * Begin of bsnAPIfStationSNRCoverageInfoTable
@@ -6356,6 +6424,7 @@ bsnAPIfStationCountOnSNR OBJECT-TYPE
     DESCRIPTION
         "Number of stations on this SNR Level" 
     ::= { bsnAPIfStationSNRCoverageInfoEntry 23 }
+ 
 
 -- ********************************************************************
 -- * Begin of bsnAPIfRecommendedRFParametersTable
@@ -6424,6 +6493,7 @@ bsnAPIfRecommendedFragmentationThreshold OBJECT-TYPE
         "Recommended Fragmentation Threshold by RRM for this
         APIf" 
     ::= { bsnAPIfRecommendedRFParametersEntry 24 }
+ 
 
 -- *******************************************************************
 -- * Global Dot11 Parameters
@@ -6433,6 +6503,7 @@ bsnAPIfRecommendedFragmentationThreshold OBJECT-TYPE
 
 bsnGlobalDot11Config  OBJECT IDENTIFIER
     ::= { bsnGlobalDot11 1 }
+
 
 -- ********************************************************************
 -- *  BSN Dot11 Global Universal Parameters that apply to both a and b
@@ -6912,6 +6983,7 @@ bsnAppleTalkEnabled OBJECT-TYPE
 bsnTrustedApPolicyConfig  OBJECT IDENTIFIER
     ::= { bsnGlobalDot11Config 40 }
 
+
 bsnPolicyForMisconfiguredAps OBJECT-TYPE
     SYNTAX          INTEGER  {
                         alarmOnly(0),
@@ -7028,6 +7100,7 @@ bsnTrustedApEntryExpirationTimeout OBJECT-TYPE
 bsnClientExclusionPolicyConfig  OBJECT IDENTIFIER
     ::= { bsnGlobalDot11Config 41 }
 
+
 bsnExcessive80211AssocFailures OBJECT-TYPE
     SYNTAX          INTEGER  {
                         disable(0),
@@ -7113,6 +7186,7 @@ bsnIPTheftORReuse OBJECT-TYPE
 
 bsnSignatureConfig  OBJECT IDENTIFIER
     ::= { bsnGlobalDot11Config 42 }
+
 
 bsnStandardSignatureTable OBJECT-TYPE
     SYNTAX          SEQUENCE OF BsnStandardSignatureEntry 
@@ -7328,6 +7402,7 @@ bsnStandardSignatureInterval OBJECT-TYPE
         "Interval of the signature. This specifies the interval
         when the signature is applied to a packet." 
     ::= { bsnStandardSignatureEntry 21 }
+ 
 
 -- *******************************************************************
 -- *  Packet Matching Patterns of a Standard Signature
@@ -7421,6 +7496,7 @@ bsnStandardSignaturePatternRowStatus OBJECT-TYPE
         "Row Status for creation/deletion. Signature Pattern will allowed
         to be created, deleted and edited in later releases." 
     ::= { bsnStandardSignaturePatternEntry 15 }
+ 
 
 -- ********************************************************************
 -- *  Custom Signature List.
@@ -7640,6 +7716,7 @@ bsnCustomSignatureInterval OBJECT-TYPE
         "Interval of the signature. This specifies the interval
         when the signature is applied to a packet." 
     ::= { bsnCustomSignatureEntry 21 }
+ 
 
 -- *******************************************************************
 -- *  Packet Matching Patterns of a Custom Signature
@@ -7733,6 +7810,8 @@ bsnCustomSignaturePatternRowStatus OBJECT-TYPE
         "Row Status for creation/deletion. Signature Pattern will
         allowed to be created, deleted and edited in later releases." 
     ::= { bsnCustomSignaturePatternEntry 15 }
+ 
+
 
 -- ********************************************************************
 -- *  Global parameter for Signature Check enable/disable
@@ -7757,6 +7836,7 @@ bsnSignatureCheckState OBJECT-TYPE
 
 bsnRfIdTagConfig  OBJECT IDENTIFIER
     ::= { bsnGlobalDot11Config 43 }
+
 
 bsnRfIdTagStatus OBJECT-TYPE
     SYNTAX          INTEGER  {
@@ -7797,6 +7877,7 @@ bsnRfIdTagAutoTimeoutStatus OBJECT-TYPE
 
 bsnAPNeighborAuthConfig  OBJECT IDENTIFIER
     ::= { bsnGlobalDot11Config 44 }
+
 
 bsnAPNeighborAuthStatus OBJECT-TYPE
     SYNTAX          INTEGER  {
@@ -7850,6 +7931,7 @@ bsnFastSSIDChangeFeature OBJECT-TYPE
 bsnBridgingPolicyConfig  OBJECT IDENTIFIER
     ::= { bsnGlobalDot11Config 47 }
 
+
 bsnBridgingZeroTouchConfig OBJECT-TYPE
     SYNTAX          INTEGER  {
                         disable(0),
@@ -7890,6 +7972,7 @@ bsnGlobalDot11h  OBJECT IDENTIFIER
 
 bsnGlobalDot11bConfig  OBJECT IDENTIFIER
     ::= { bsnGlobalDot11b 1 }
+
 
 bsnGlobalDot11bNetworkStatus OBJECT-TYPE
     SYNTAX          INTEGER  {
@@ -8346,6 +8429,7 @@ bsnGlobalDot11bDTPCSupport OBJECT-TYPE
 bsnGlobalDot11bPhy  OBJECT IDENTIFIER
     ::= { bsnGlobalDot11b 2 }
 
+
 bsnGlobalDot11bMediumOccupancyLimit OBJECT-TYPE
     SYNTAX          INTEGER (0..1000)
     MAX-ACCESS      read-only
@@ -8590,6 +8674,7 @@ bsnGlobalDot11bShortPreambleOptionImplemented OBJECT-TYPE
 
 bsnGlobalDot11aConfig  OBJECT IDENTIFIER
     ::= { bsnGlobalDot11a 1 }
+
 
 bsnGlobalDot11aNetworkStatus OBJECT-TYPE
     SYNTAX          INTEGER  {
@@ -8997,6 +9082,7 @@ bsnGlobalDot11aDTPCSupport OBJECT-TYPE
 bsnGlobalDot11aPhy  OBJECT IDENTIFIER
     ::= { bsnGlobalDot11a 2 }
 
+
 bsnGlobalDot11aMediumOccupancyLimit OBJECT-TYPE
     SYNTAX          INTEGER (0..1000)
     MAX-ACCESS      read-only
@@ -9215,6 +9301,7 @@ bsnGlobalDot11aChannelAgilityEnabled OBJECT-TYPE
 bsnGlobalDot11hConfig  OBJECT IDENTIFIER
     ::= { bsnGlobalDot11h 1 }
 
+
 -- *******************************************************************
 -- These global attributes are to Enable/Disable Power Control and
 -- Channel Switch for 802.11h
@@ -9281,6 +9368,7 @@ bsnRrmDot11b  OBJECT IDENTIFIER
 
 bsnRrmDot11aGroup  OBJECT IDENTIFIER
     ::= { bsnRrmDot11a 1 }
+
 
 bsnRrmDot11aGlobalAutomaticGrouping OBJECT-TYPE
     SYNTAX          INTEGER  {
@@ -9386,6 +9474,7 @@ bsnWrasDot11aPeerIpAddress OBJECT-TYPE
     DESCRIPTION
         "The IP address of the Airespace Switch." 
     ::= { bsnWrasDot11aGroupEntry 21 }
+ 
 
 -- ********************************************************************
 -- * Begin bsnRrmDot11aAPDefault
@@ -9393,6 +9482,7 @@ bsnWrasDot11aPeerIpAddress OBJECT-TYPE
 
 bsnRrmDot11aAPDefault  OBJECT IDENTIFIER
     ::= { bsnRrmDot11a 6 }
+
 
 -- ********************************************************************
 -- * Begin bsnRrmDot11aAPProfile
@@ -9543,6 +9633,7 @@ bsnRrmDot11aSetFactoryDefault OBJECT-TYPE
 bsnRrmDot11bGroup  OBJECT IDENTIFIER
     ::= { bsnRrmDot11b 1 }
 
+
 bsnRrmDot11bGlobalAutomaticGrouping OBJECT-TYPE
     SYNTAX          INTEGER  {
                         automatic(1),
@@ -9647,6 +9738,7 @@ bsnWrasDot11bPeerIpAddress OBJECT-TYPE
     DESCRIPTION
         "The IP address of the Airespace Switch." 
     ::= { bsnWrasDot11bGroupEntry 21 }
+ 
 
 -- ************************************************************
 -- * End of bsnWrasDot11bGroup Table
@@ -9659,6 +9751,7 @@ bsnWrasDot11bPeerIpAddress OBJECT-TYPE
 
 bsnRrmDot11bAPDefault  OBJECT IDENTIFIER
     ::= { bsnRrmDot11b 6 }
+
 
 bsnRrmDot11bForeignInterferenceThreshold OBJECT-TYPE
     SYNTAX          INTEGER (0..100)
@@ -10100,6 +10193,7 @@ bsnRadiusAuthServerRowStatus OBJECT-TYPE
     DESCRIPTION
         "Row Status for creation/deletion" 
     ::= { bsnRadiusAuthServerEntry 26 }
+ 
 
 -- *******************************************************************
 -- * Begin of bsnRadiusAccServerTable
@@ -10319,6 +10413,7 @@ bsnRadiusAccServerRowStatus OBJECT-TYPE
     DESCRIPTION
         "Row Status for creation/deletion" 
     ::= { bsnRadiusAccServerEntry 26 }
+ 
 
 -- *******************************************************************
 -- * Begin of bsnRadiusAuthServerStatsTable
@@ -10497,6 +10592,7 @@ bsnRadiusAuthClientPacketsDropped OBJECT-TYPE
         received from this server on the authentication port
         and dropped for some other reason." 
     ::= { bsnRadiusAuthServerStatsEntry 36 }
+ 
 
 -- *******************************************************************
 -- * Begin of bsnRadiusAccServerStatsTable
@@ -10650,6 +10746,7 @@ bsnRadiusAccClientPacketsDropped OBJECT-TYPE
         this server on the accounting port and dropped for some
         other reason." 
     ::= { bsnRadiusAccServerStatsEntry 34 }
+ 
 
 -- *******************************************************************
 -- bsnUsersTable
@@ -10745,6 +10842,7 @@ bsnUserRowStatus OBJECT-TYPE
     DESCRIPTION
         "Row Status" 
     ::= { bsnUsersEntry 26 }
+ 
 
 -- *******************************************************************
 -- bsnMacFilterTable
@@ -10815,6 +10913,7 @@ bsnMacFilterRowStatus OBJECT-TYPE
     DESCRIPTION
         "Row Status" 
     ::= { bsnMacFilterEntry 24 }
+ 
 
 -- *******************************************************************
 -- bsnLocalNetUserTable
@@ -10926,6 +11025,7 @@ bsnLocalNetUserRowStatus OBJECT-TYPE
     DESCRIPTION
         "Row Status" 
     ::= { bsnLocalNetUserEntry 24 }
+ 
 
 -- *******************************************************************
 -- bsnLocalManagementUserTable
@@ -10989,6 +11089,7 @@ bsnLocalManagementUserRowStatus OBJECT-TYPE
     DESCRIPTION
         "Row Status" 
     ::= { bsnLocalManagementUserEntry 23 }
+ 
 
 -- *******************************************************************
 -- bsnAclTable
@@ -11045,6 +11146,7 @@ bsnAclRowStatus OBJECT-TYPE
     DESCRIPTION
         "Row Status of the ACL." 
     ::= { bsnAclEntry 20 }
+ 
 
 -- *******************************************************************
 -- bsnAclRuleTable
@@ -11263,6 +11365,8 @@ bsnAclRuleRowStatus OBJECT-TYPE
     DESCRIPTION
         "Row Status of the ACL Rule." 
     ::= { bsnAclRuleEntry 40 }
+ 
+
 
 -- *******************************************************************
 -- bsnAAA common attributes
@@ -11426,6 +11530,7 @@ bsnBlackListClientRowStatus OBJECT-TYPE
     DESCRIPTION
         "Row Status" 
     ::= { bsnBlackListClientEntry 22 }
+ 
 
 -- *******************************************************************
 -- * Begin of bsnExternalPolicyServerTable
@@ -11528,6 +11633,8 @@ bsnExternalPolicyServerRowStatus OBJECT-TYPE
     DESCRIPTION
         "Row Status for creation/deletion" 
     ::= { bsnExternalPolicyServerEntry 26 }
+ 
+
 
 bsnExternalPolicyServerAclName OBJECT-TYPE
     SYNTAX          DisplayString (SIZE  (0..32))
@@ -11630,6 +11737,8 @@ bsnAPAuthRowStatus OBJECT-TYPE
     DESCRIPTION
         "Row Status" 
     ::= { bsnAPAuthorizationEntry 20 }
+ 
+
 
 -- ********************************************************************
 -- * Begin of bsnWrasIKECertTable
@@ -11721,6 +11830,7 @@ bsnWrasIpsecCertStatus OBJECT-TYPE
     DESCRIPTION
         "A row status type for the IKE Cert Entry." 
     ::= { bsnWrasIpsecCertEntry 24 }
+ 
 
 -- *************************************************************
 -- bsnTrap Object Group
@@ -11744,6 +11854,7 @@ bsnTrapVariable  OBJECT IDENTIFIER
 
 bsnTraps  OBJECT IDENTIFIER
     ::= { bsnTrap 3 }
+
 
 -- *************************************************************
 -- Mobile Station related traps and trapControl
@@ -13639,6 +13750,7 @@ bsnImpersonatingSourceMacAddr OBJECT-TYPE
 bsnSyslog  OBJECT IDENTIFIER
     ::= { bsnUtility 1 }
 
+
 bsnSyslogEnable OBJECT-TYPE
     SYNTAX          INTEGER  {
                         no(0),
@@ -13663,6 +13775,7 @@ bsnSyslogRemoteAddress OBJECT-TYPE
 
 bsnPing  OBJECT IDENTIFIER
     ::= { bsnUtility 2 }
+
 
 bsnPingTestTable OBJECT-TYPE
     SYNTAX          SEQUENCE OF BsnPingTestEntry 
@@ -13771,6 +13884,7 @@ bsnPingTestRowStatus OBJECT-TYPE
     DESCRIPTION
         "Row Status" 
     ::= { bsnPingTestEntry 25 }
+ 
 
 -- ********************************************************************
 -- bsn Link
@@ -13778,6 +13892,7 @@ bsnPingTestRowStatus OBJECT-TYPE
 
 bsnLinkTest  OBJECT IDENTIFIER
     ::= { bsnUtility 3 }
+
 
 bsnLinkTestTable OBJECT-TYPE
     SYNTAX          SEQUENCE OF BsnLinkTestEntry 
@@ -13894,6 +14009,7 @@ bsnLinkTestRowStatus OBJECT-TYPE
     DESCRIPTION
         "Row Status" 
     ::= { bsnLinkTestEntry 30 }
+ 
 
 -- ********************************************************************
 -- * Begin of bsnMobility
@@ -13904,6 +14020,7 @@ bsnMobilityConfig  OBJECT IDENTIFIER
 
 bsnMobilityStats  OBJECT IDENTIFIER
     ::= { bsnMobility 2 }
+
 
 bsnMobilityProtocolPortNum OBJECT-TYPE
     SYNTAX          Integer32
@@ -14003,6 +14120,7 @@ bsnMobilityGroupMemberRowStatus OBJECT-TYPE
     DESCRIPTION
         "Row Status" 
     ::= { bsnMobilityGroupMembersEntry 22 }
+ 
 
 -- ********************************************************************
 -- *    bsnMobilityAnchorsTable
@@ -14058,6 +14176,8 @@ bsnMobilityAnchorRowStatus OBJECT-TYPE
     DESCRIPTION
         "Row Status" 
     ::= { bsnMobilityAnchorsEntry 20 }
+ 
+
 
 -- ********************************************************************
 -- * Begin of bsnMobilityStats
@@ -14463,9 +14583,11 @@ bsnMemberTotalCommunicationErrors OBJECT-TYPE
     DESCRIPTION
         "Total Communication errors" 
     ::= { bsnMobilityGroupDirectoryEntry 30 }
+ 
 
 bsnAPGroupsVlanConfig  OBJECT IDENTIFIER
     ::= { bsnWireless 10 }
+
 
 -- ********************************************************************
 -- Airespace Site Specific WLAN Configuration Paramaters
@@ -14534,6 +14656,7 @@ bsnAPGroupsVlanRowStatus OBJECT-TYPE
         "Row Status for creation/deletion of entries in
         bsnAPGroupsVlanTable" 
     ::= { bsnAPGroupsVlanEntry 20 }
+ 
 
 -- ********************************************************************
 -- * Begin of bsnAPGroupsVlanMappingTable
@@ -14598,6 +14721,8 @@ bsnAPGroupsVlanMappingRowStatus OBJECT-TYPE
         "Row Status for creation/deletion of WLAN-interface-mappings
         asscoiated with sites." 
     ::= { bsnAPGroupsVlanMappingEntry 20 }
+ 
+
 
 bsnAPIPAddressFallback NOTIFICATION-TYPE
     OBJECTS         {
@@ -16930,7 +17055,7 @@ bsnApGroupRev1 OBJECT-GROUP
         about Airespace APs that are associated with the Switch.
         These objects are defined under bsnAP object."
     ::= { bsnWrasGroups 18 }
-
+    
 bsnUtilityGroupRev1 OBJECT-GROUP
     OBJECTS         {
                         bsnSyslogEnable,
@@ -16951,7 +17076,7 @@ bsnUtilityGroupRev1 OBJECT-GROUP
         about Airespace General Utilities such as ping, syslog.
         These objects are defined under bsnUtility."
     ::= { bsnWrasGroups 19 }   
-
+    
 bsnWrasObsGroupRev1 OBJECT-GROUP
     OBJECTS         {
                         bsnMobileStationSampleTime,
@@ -16965,7 +17090,7 @@ bsnWrasObsGroupRev1 OBJECT-GROUP
         "This collection of objects are  obsoleted in bsnWireless
         module."
     ::= { bsnWrasGroups 20 }     
-
+    
 bsnWrasObsTrap NOTIFICATION-GROUP
    NOTIFICATIONS    {
                         bsnAPUp,

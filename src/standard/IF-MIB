@@ -12,6 +12,7 @@ IMPORTS
     snmpTraps                                FROM SNMPv2-MIB
     IANAifType                               FROM IANAifType-MIB;
 
+
 ifMIB MODULE-IDENTITY
     LAST-UPDATED "200006140000Z"
     ORGANIZATION "IETF Interfaces MIB Working Group"
@@ -29,7 +30,6 @@ ifMIB MODULE-IDENTITY
             interface sub-layers.  This MIB is an updated version of
             MIB-II's ifTable, and incorporates the extensions defined in
             RFC 1229."
-
     REVISION      "200006140000Z"
     DESCRIPTION
             "Clarifications agreed upon by the Interfaces MIB WG, and
@@ -43,6 +43,7 @@ ifMIB MODULE-IDENTITY
             "Initial revision, published as part of RFC 1573."
     ::= { mib-2 31 }
 
+
 ifMIBObjects OBJECT IDENTIFIER ::= { ifMIB 1 }
 
 interfaces   OBJECT IDENTIFIER ::= { mib-2 2 }
@@ -50,6 +51,7 @@ interfaces   OBJECT IDENTIFIER ::= { mib-2 2 }
 --
 -- Textual Conventions
 --
+
 
 -- OwnerString has the same semantics as used in RFC 1271
 
@@ -120,10 +122,10 @@ ifTableLastChange  OBJECT-TYPE
             contains a zero value."
     ::= { ifMIBObjects 5 }
 
+
 -- the Interfaces table
 
 -- The Interfaces table contains information on the entity's
-
 -- interfaces.  Each sub-layer below the internetwork-layer
 -- of a network interface is considered to be an interface.
 
@@ -364,7 +366,6 @@ ifInDiscards OBJECT-TYPE
     DESCRIPTION
             "The number of inbound packets which were chosen to be
             discarded even though no errors had been detected to prevent
-
             their being deliverable to a higher-layer protocol.  One
             possible reason for discarding such a packet could be to
             free up buffer space.
@@ -511,7 +512,6 @@ ifSpecific OBJECT-TYPE
     DESCRIPTION
             "A reference to MIB definitions specific to the particular
             media being used to realize the interface.  It is
-
             recommended that this value point to an instance of a MIB
             object in the media-specific MIB, i.e., that this object
             have the semantics associated with the InstancePointer
@@ -521,6 +521,8 @@ ifSpecific OBJECT-TYPE
             definitions specific to the particular media are available,
             the value should be set to the OBJECT IDENTIFIER { 0 0 }."
     ::= { ifEntry 22 }
+
+
 
 --
 --   Extension to the interface table
@@ -571,6 +573,7 @@ IfXEntry ::=
         ifCounterDiscontinuityTime TimeStamp
     }
 
+
 ifName OBJECT-TYPE
     SYNTAX      DisplayString
     MAX-ACCESS  read-only
@@ -605,7 +608,6 @@ ifInMulticastPkts OBJECT-TYPE
 
             Discontinuities in the value of this counter can occur at
             re-initialization of the management system, and at other
-
             times as indicated by the value of
             ifCounterDiscontinuityTime."
     ::= { ifXEntry 2 }
@@ -654,7 +656,6 @@ ifOutBroadcastPkts OBJECT-TYPE
 
             Discontinuities in the value of this counter can occur at
             re-initialization of the management system, and at other
-
             times as indicated by the value of
             ifCounterDiscontinuityTime."
     ::= { ifXEntry 5 }
@@ -895,7 +896,6 @@ ifCounterDiscontinuityTime OBJECT-TYPE
             any one or more of this interface's counters suffered a
             discontinuity.  The relevant counters are the specific
             instances associated with this interface of any Counter32 or
-
             Counter64 object contained in the ifTable or ifXTable.  If
             no such discontinuities have occurred since the last re-
             initialization of the local management subsystem, then this
@@ -939,6 +939,7 @@ ifStackTable  OBJECT-TYPE
               ifStackStatus.x.0=active "
      ::= { ifMIBObjects 2 }
 
+
 ifStackEntry  OBJECT-TYPE
      SYNTAX        IfStackEntry
      MAX-ACCESS    not-accessible
@@ -951,12 +952,14 @@ ifStackEntry  OBJECT-TYPE
      INDEX { ifStackHigherLayer, ifStackLowerLayer }
      ::= { ifStackTable 1 }
 
+
 IfStackEntry ::=
     SEQUENCE {
         ifStackHigherLayer  InterfaceIndexOrZero,
         ifStackLowerLayer   InterfaceIndexOrZero,
         ifStackStatus       RowStatus
      }
+
 
 ifStackHigherLayer  OBJECT-TYPE
      SYNTAX        InterfaceIndexOrZero
@@ -970,6 +973,7 @@ ifStackHigherLayer  OBJECT-TYPE
             the internetwork layer), then this object has the value 0."
      ::= { ifStackEntry 1 }
 
+
 ifStackLowerLayer  OBJECT-TYPE
      SYNTAX        InterfaceIndexOrZero
      MAX-ACCESS    not-accessible
@@ -981,6 +985,7 @@ ifStackLowerLayer  OBJECT-TYPE
             ifStackHigherLayer.  If there is no lower sub-layer, then
             this object has the value 0."
      ::= { ifStackEntry 2 }
+
 
 ifStackStatus  OBJECT-TYPE
     SYNTAX         RowStatus
@@ -1010,6 +1015,7 @@ ifStackLastChange OBJECT-TYPE
             the local network management subsystem, then this object
             contains a zero value."
     ::= { ifMIBObjects 6 }
+
 
 --   Generic Receive Address Table
 --
@@ -1078,15 +1084,16 @@ ifRcvAddressStatus OBJECT-TYPE
     DESCRIPTION
             "This object is used to create and delete rows in the
             ifRcvAddressTable."
+
     ::= { ifRcvAddressEntry 2 }
 
 ifRcvAddressType OBJECT-TYPE
     SYNTAX      INTEGER {
-
                     other(1),
                     volatile(2),
                     nonVolatile(3)
                 }
+
     MAX-ACCESS  read-create
     STATUS      current
     DESCRIPTION
@@ -1098,6 +1105,7 @@ ifRcvAddressType OBJECT-TYPE
             managed system.  Entries having the value other(1) are valid
             and exist but are not classified as to whether they will
             continue to exist after the next restart."
+
     DEFVAL  { volatile }
     ::= { ifRcvAddressEntry 3 }
 
@@ -1134,6 +1142,7 @@ ifConformance OBJECT IDENTIFIER ::= { ifMIB 2 }
 ifGroups      OBJECT IDENTIFIER ::= { ifConformance 1 }
 ifCompliances OBJECT IDENTIFIER ::= { ifConformance 2 }
 
+
 -- compliance statements
 
 ifCompliance3 MODULE-COMPLIANCE
@@ -1156,6 +1165,7 @@ ifCompliance3 MODULE-COMPLIANCE
 -- for a particular interface.  When any of these groups is implemented
 -- for a particular interface, then ifCounterDiscontinuityGroup must
 -- also be implemented for that interface.
+
 
         GROUP       ifFixedLengthGroup
         DESCRIPTION
@@ -1195,6 +1205,7 @@ ifCompliance3 MODULE-COMPLIANCE
             corresponding instance of ifSpeed is greater than
             650,000,000 bits/second."
 
+
         GROUP       ifCounterDiscontinuityGroup
         DESCRIPTION
             "This group is mandatory for those network interfaces that
@@ -1202,6 +1213,7 @@ ifCompliance3 MODULE-COMPLIANCE
             of the ifFixedLengthGroup, ifHCFixedLengthGroup,
             ifPacketGroup, ifHCPacketGroup, or ifVHCPacketGroup is
             mandatory)."
+
 
         GROUP       ifRcvAddressGroup
         DESCRIPTION
@@ -1231,6 +1243,7 @@ ifCompliance3 MODULE-COMPLIANCE
         MIN-ACCESS   read-only
         DESCRIPTION
             "Write access is not required."
+
     ::= { ifCompliances 3 }
 
 -- units of conformance
@@ -1359,11 +1372,11 @@ linkUpDownNotificationsGroup  NOTIFICATION-GROUP
 
 -- Deprecated Definitions - Objects
 
+
 --
 --    The Interface Test Table
 --
 -- This group of objects is optional.  However, a media-specific
-
 -- MIB may make implementation of this group mandatory.
 --
 -- This table replaces the ifExtnsTestTable
@@ -1412,6 +1425,7 @@ ifTestTable   OBJECT-TYPE
               lock_value = ifTestId
 
               if ( set(ifTestId = lock_value, ifTestStatus = inUse,
+
                        ifTestOwner = 'my-IP-address') == FAILURE)
                   /*
                    * Another manager got the ifTestEntry -- go
@@ -1460,7 +1474,6 @@ ifTestTable   OBJECT-TYPE
             by two network managers were to overlap, then there would be
             a possibility that the first test's results might be
             overwritten by the second test's results prior to the first
-
             results being read.  This unlikely circumstance can be
             detected by a network manager retrieving ifTestId at the
             same time as retrieving the test results, and ensuring that
@@ -1509,7 +1522,6 @@ ifTestEntry OBJECT-TYPE
     ::= { ifTestTable 1 }
 
 IfTestEntry ::=
-
     SEQUENCE {
         ifTestId           TestAndIncr,
         ifTestStatus       INTEGER,
@@ -1558,7 +1570,6 @@ ifTestType       OBJECT-TYPE
             When the value noTest is written to this object, no action
             is taken unless a test is in progress, in which case the
             test is aborted.  Writing any other value to this object is
-
             only valid when no test is currently in progress, in which
             case the indicated test is initiated.
 
@@ -1619,6 +1630,7 @@ ifTestOwner      OBJECT-TYPE
 
 -- Deprecated Definitions - Groups
 
+
 ifGeneralGroup    OBJECT-GROUP
     OBJECTS { ifDescr, ifType, ifSpeed, ifPhysAddress,
               ifAdminStatus, ifOperStatus, ifLastChange,
@@ -1630,6 +1642,7 @@ ifGeneralGroup    OBJECT-GROUP
             ifGeneralInformationGroup."
     ::= { ifGroups 1 }
 
+
 ifTestGroup    OBJECT-GROUP
     OBJECTS { ifTestId, ifTestStatus, ifTestType,
               ifTestResult, ifTestCode, ifTestOwner }
@@ -1639,6 +1652,7 @@ ifTestGroup    OBJECT-GROUP
             tests on an interface."
     ::= { ifGroups 8 }
 
+
 ifStackGroup    OBJECT-GROUP
     OBJECTS { ifStackStatus }
     STATUS  deprecated
@@ -1646,6 +1660,7 @@ ifStackGroup    OBJECT-GROUP
             "The previous collection of objects providing information on
             the layering of MIB-II interfaces."
     ::= { ifGroups 9 }
+
 
 ifOldObjectsGroup    OBJECT-GROUP
     OBJECTS { ifInNUcastPkts, ifOutNUcastPkts,
@@ -1700,7 +1715,6 @@ ifCompliance MODULE-COMPLIANCE
             interface tests are strongly encouraged to use this group
             for invoking tests and reporting results.  A medium specific
             MIB which has mandatory tests may make implementation of
-
             this group mandatory."
 
         GROUP       ifRcvAddressGroup
@@ -1797,7 +1811,6 @@ ifCompliance2 MODULE-COMPLIANCE
             "Write access is not required, and only one of the six
             enumerated values for the RowStatus textual convention need
             be supported, specifically: active(1)."
-
         OBJECT       ifAdminStatus
         SYNTAX       INTEGER { up(1), down(2) }
         MIN-ACCESS   read-only
@@ -1809,6 +1822,7 @@ ifCompliance2 MODULE-COMPLIANCE
         MIN-ACCESS   read-only
         DESCRIPTION
             "Write access is not required."
+
     ::= { ifCompliances 2 }
 
 END

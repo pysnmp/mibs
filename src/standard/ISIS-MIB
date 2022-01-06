@@ -1,3 +1,15 @@
+-- *****************************************************************
+-- ISIS-MIB.my:  IS-IS MIB
+--
+-- February 2008, Christian E. Hopps
+--
+-- Copyright (c) 2008 by cisco Systems, Inc.
+-- All rights reserved.
+--
+-- *****************************************************************
+
+
+
 ISIS-MIB DEFINITIONS ::= BEGIN
      IMPORTS
         TEXTUAL-CONVENTION, RowStatus, TruthValue, TimeStamp
@@ -41,11 +53,6 @@ ISIS-MIB DEFINITIONS ::= BEGIN
              current syntax, to exclude portions of the protocol that
              are not relevant to IP, and to add management support for
              current practice.
-
-
-
-
-
 
              Copyright (C) The Internet Society (2006).  This version
              of this MIB module is part of RFC 4444; see the RFC
@@ -96,8 +103,6 @@ isisLSPDataBase OBJECT IDENTIFIER ::= { isisObjects 9 }
 -- Objects included in Notifications.
 isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
 
-
-
 -- Type definitions
 
     IsisOSINSAddress ::= TEXTUAL-CONVENTION
@@ -146,8 +151,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
 
     IsisLSPBuffSize ::= TEXTUAL-CONVENTION
         DISPLAY-HINT "d"
-
-
 
         STATUS current
         DESCRIPTION
@@ -198,8 +201,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
              6-bit metric.  Traffic Engineering extensions provide
              24-bit metrics."
 
-
-
         REFERENCE "{See section 3 of RFC 3784}"
         SYNTAX Unsigned32 (0..16777215)
 
@@ -248,8 +249,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
 
     IsisLevel ::= TEXTUAL-CONVENTION
         STATUS current
-
-
 
         DESCRIPTION
             "Identifies one or more levels."
@@ -300,8 +299,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
              some values."
         SYNTAX Unsigned32 (0..255)
 
-
-
 -- Behavior Definitions
 
 -- ResettingTimer behavior definition
@@ -350,8 +347,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
 
     isisSysLevelType OBJECT-TYPE
         SYNTAX IsisLevel
-
-
 
         MAX-ACCESS read-write
         STATUS current
@@ -402,8 +397,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
     isisSysMaxLSPGenInt OBJECT-TYPE
         SYNTAX Unsigned32 (1..65235)
 
-
-
         UNITS "seconds"
         MAX-ACCESS read-write
         STATUS current
@@ -452,8 +445,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
 
     isisSysAdminState OBJECT-TYPE
         SYNTAX IsisAdminState
-
-
 
         MAX-ACCESS read-write
         STATUS current
@@ -504,8 +495,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
              as big as the maximum isisSysLevelOrigLSPBuffSize
              supported by the system.
 
-
-
              If resources allow, we will store and flood LSPs
              larger than isisSysReceiveLSPBufferSize, as this
              can help avoid problems in networks with different
@@ -554,8 +543,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
              At least one row in which the value of
              isisManAreaAddrExistState is active must be present.
              The maximum number of rows in this table for
-
-
 
              which the object isisManAreaAddrExistState has the
              value active is 3.
@@ -606,8 +593,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
         STATUS current
         DESCRIPTION
 
-
-
             "The state of the isisManAreaAddrEntry.  If the
              isisSysAdminState for this Intermediate System is 'on' and
              an attempt is made to set this object to the value
@@ -655,9 +640,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
             isisAreaAddr
                 IsisOSINSAddress
             }
-
-
-
 
     isisAreaAddr OBJECT-TYPE
         SYNTAX IsisOSINSAddress
@@ -708,8 +690,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
                 isisSummAddress,
                 isisSummAddrPrefixLen }
 
-
-
     ::= { isisSummAddrTable 1 }
 
     IsisSummAddrEntry ::=
@@ -758,8 +738,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
             "The Length of the IP NetMask for this summary address.
 
              The values for the index objects isisSummAddress and
-
-
 
              isisSummAddrPrefixLen must be consistent.  When the value
              of isisSummAddress (excluding the zone index, if one
@@ -810,8 +788,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
         SYNTAX SEQUENCE OF IsisRedistributeAddrEntry
         MAX-ACCESS not-accessible
 
-
-
         STATUS current
         DESCRIPTION
             "This table provides criteria to decide if a route should
@@ -860,8 +836,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
         }
 
     isisRedistributeAddrType OBJECT-TYPE
-
-
 
         SYNTAX InetAddressType
         MAX-ACCESS not-accessible
@@ -912,8 +886,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
         DESCRIPTION
             "The existence state of this summary address.  Support
 
-
-
              for createAndWait and notInService is not required.
 
              A row entry cannot be modified when the value of this
@@ -962,8 +934,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
         STATUS current
         DESCRIPTION
             "The System ID of the Intermediate System."
-
-
 
     ::= { isisRouterEntry 1 }
 
@@ -1014,8 +984,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
              Configured values MUST survive an agent reboot."
         INDEX { isisSysLevelIndex }
 
-
-
     ::= { isisSysLevelTable 1 }
 
     IsisSysLevelEntry ::=
@@ -1064,8 +1032,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
     isisSysLevelMinLSPGenInt OBJECT-TYPE
         SYNTAX IsisUnsigned16TC (1..65535)
         UNITS "seconds"
-
-
 
         MAX-ACCESS read-write
         STATUS current
@@ -1116,8 +1082,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
         MAX-ACCESS read-write
         STATUS current
 
-
-
         DESCRIPTION
             "If this object is non-zero, the overload bit is set at
              this level when the isisSysAdminState variable goes to
@@ -1167,8 +1131,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
     isisNextCircIndex OBJECT-TYPE
         SYNTAX IndexIntegerNextFree
 
-
-
         MAX-ACCESS read-only
         STATUS current
         DESCRIPTION
@@ -1216,9 +1178,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
              Dynamically created rows MUST survive an agent reboot."
         INDEX { isisCircIndex }
     ::= { isisCircTable 1 }
-
-
-
 
     IsisCircEntry ::=
         SEQUENCE {
@@ -1269,8 +1228,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
     isisCircIfIndex OBJECT-TYPE
         SYNTAX InterfaceIndex
 
-
-
         MAX-ACCESS read-create
         STATUS current
         DESCRIPTION
@@ -1319,8 +1276,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
             "The type of the circuit.  This object follows the
              ReplaceOnlyWhileDisabled behavior.  The type specified
              must be compatible with the type of the interface defined
-
-
 
              by the value of isisCircIfIndex."
         REFERENCE "{ISIS.aoi type (33)}"
@@ -1371,8 +1326,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
                 blocked(2),
                 set(3)
 
-
-
             }
         MAX-ACCESS read-create
         STATUS current
@@ -1421,8 +1374,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
              hundredths of seconds since the last re-initialization
              of the network management subsystem; 0 if the
              circuit has never been 'on'."
-
-
 
     ::= { isisCircEntry 12 }
 
@@ -1473,8 +1424,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
 
     IsisCircLevelEntry ::=
 
-
-
         SEQUENCE {
             isisCircLevelIndex
                 IsisISLevel,
@@ -1523,8 +1472,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
         REFERENCE "{ISIS.aoi l1DefaultMetric (35)}"
         DEFVAL { 10 }
     ::= { isisCircLevelEntry 2 }
-
-
 
     isisCircLevelWideMetric OBJECT-TYPE
         SYNTAX IsisWideMetric
@@ -1575,8 +1522,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
              adjacency to a peer IS, the value of this object is
              the circuit ID negotiated during adjacency initialization.
 
-
-
              On a point to point circuit without such an adjacency,
              the value is the concatenation of the local system ID
              and the one-byte isisCircLevelIDOctet for this circuit,
@@ -1624,9 +1569,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
              Hellos on L1L2 point-to-point circuits.  Setting
              this value at level 2 on an L1L2 point-to-point
              circuit will result in an error of InconsistentValue.
-
-
-
 
              This object follows the ResettingTimer behavior."
         REFERENCE "{ISIS.aoi iSISHelloTimer (45)}"
@@ -1677,8 +1619,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
         DEFVAL { 5 }
     ::= { isisCircLevelEntry 12 }
 
-
-
     isisCircLevelCSNPInterval OBJECT-TYPE
         SYNTAX Unsigned32 (1..600)
         UNITS "seconds"
@@ -1728,8 +1668,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
 
     IsisSystemCounterEntry ::=
 
-
-
         SEQUENCE {
             isisSysStatLevel
                 IsisISLevel,
@@ -1777,9 +1715,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
 
              LSPs received from the wire with a bad checksum
              are silently dropped and are not counted.
-
-
-
 
              LSPs received from the wire with parse errors
              are counted by isisSysStatLSPErrors."
@@ -1830,8 +1765,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
         SYNTAX Counter32
         MAX-ACCESS read-only
 
-
-
         STATUS current
         DESCRIPTION
             "Number of times the IS has attempted to exceed the
@@ -1880,8 +1813,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
 
     isisSysStatSPFRuns OBJECT-TYPE
         SYNTAX Counter32
-
-
 
         MAX-ACCESS read-only
         STATUS current
@@ -1932,8 +1863,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
               Counter32,
           isisCircRejAdjs
 
-
-
               Counter32,
           isisCircIDFieldLenMismatches
               Counter32,
@@ -1982,8 +1911,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
         STATUS current
         DESCRIPTION
             "The number of adjacencies on this circuit."
-
-
 
         REFERENCE "{ISIS.aoi changesInAdjacencyState (40)}"
     ::= { isisCircuitCounterEntry 3 }
@@ -2034,8 +1961,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
 
     isisCircAuthTypeFails OBJECT-TYPE
 
-
-
         SYNTAX Counter32
         MAX-ACCESS read-only
         STATUS current
@@ -2084,8 +2009,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
         DESCRIPTION
             "Information about IS-IS protocol traffic at one level,
              on one circuit, in one direction."
-
-
 
         INDEX { isisCircIndex,
                 isisPacketCountLevel,
@@ -2136,8 +2059,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
 
     isisPacketCountIIHello OBJECT-TYPE
 
-
-
         SYNTAX Counter32
         UNITS "Number of IS-IS Hellos frames seen in this direction
               at this level"
@@ -2186,8 +2107,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
         MAX-ACCESS read-only
         STATUS current
         DESCRIPTION
-
-
 
             "The number of IS-IS LSPs seen in this
              direction at this level."
@@ -2238,8 +2157,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
         SYNTAX SEQUENCE OF IsisISAdjEntry
         MAX-ACCESS not-accessible
 
-
-
         STATUS current
         DESCRIPTION
             "The table of adjacencies to Intermediate Systems."
@@ -2288,8 +2205,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
         SYNTAX Unsigned32(1..4294967295)
         MAX-ACCESS not-accessible
         STATUS current
-
-
 
         DESCRIPTION
             "A unique value identifying the IS adjacency from all
@@ -2340,8 +2255,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
         REFERENCE "{ISIS.aoi neighbourSNPAAddress (79)}"
     ::= { isisISAdjEntry 4 }
 
-
-
     isisISAdjNeighSysType OBJECT-TYPE
         SYNTAX INTEGER
             {
@@ -2391,8 +2304,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
     isisISAdjHoldTimer OBJECT-TYPE
         SYNTAX IsisUnsigned16TC (1..65535)
 
-
-
         UNITS "seconds"
         MAX-ACCESS read-only
         STATUS current
@@ -2440,9 +2351,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
              IIH PDUs."
         REFERENCE "{ISIS.aoi areaAddressesOfNeighbour (84)}"
     ::= { isisISAdj 2 }
-
-
-
 
     isisISAdjAreaAddrEntry OBJECT-TYPE
         SYNTAX IsisISAdjAreaAddrEntry
@@ -2493,8 +2401,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
     isisISAdjIPAddrTable OBJECT-TYPE
         SYNTAX SEQUENCE OF IsisISAdjIPAddrEntry
 
-
-
         MAX-ACCESS not-accessible
         STATUS current
         DESCRIPTION
@@ -2543,8 +2449,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
         STATUS current
         DESCRIPTION
             "The type of one IP Address as reported in IIH PDUs
-
-
 
              received from the neighbor."
     ::= { isisISAdjIPAddrEntry 2 }
@@ -2595,8 +2499,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
     IsisISAdjProtSuppEntry ::=
         SEQUENCE {
 
-
-
             isisISAdjProtSuppProtocol
                 IsisSupportedProtocol
         }
@@ -2645,8 +2547,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
                 Unsigned32,
             isisRAExistState
                 RowStatus,
-
-
 
             isisRAAdminState
                 IsisAdminState,
@@ -2697,8 +2597,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
         STATUS current
         DESCRIPTION
 
-
-
             "The administrative state of the Reachable Address.  This
              object follows the ManualOrAutomatic behaviors."
         DEFVAL { off }
@@ -2747,8 +2645,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
                        ISO8473/Add2.  This SNPA extraction algorithm can
                        be used in conjunction with Reachable Address
                        prefixes from the X.121, F.69, E.163, and E.164
-
-
 
                        addressing subdomains.
 
@@ -2799,8 +2695,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
              order to reach a destination that matches the address
              prefix of the Reachable Address.  This object follows the
 
-
-
              ManualOrAutomatic behavior."
         REFERENCE "{ISIS.aoi sNPAAddresses (109)}"
 -- Note only one address may be specified per Reachable Address
@@ -2850,8 +2744,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
                 automatic (2)
             }
 
-
-
         MAX-ACCESS read-create
         STATUS current
         DESCRIPTION
@@ -2862,7 +2754,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
              protocol (e.g., IDRP). "
         DEFVAL {manual}
     ::= {isisRAEntry 11 }
-
 
 -- The IP Reachable Address Table
 
@@ -2900,8 +2791,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
              isisIPRANextHopIndex is too great, then OIDs of column
              instances in this table will have more than 128
              subidentifiers and cannot be accessed using SNMPv1,
-
-
 
              SNMPv2c, or SNMPv3."
         INDEX {  isisSysLevelIndex,
@@ -2950,9 +2839,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
         DESCRIPTION
             "The type of this IP Reachable Address."
     ::= { isisIPRAEntry 1 }
-
-
-
 
     isisIPRADest OBJECT-TYPE
         SYNTAX InetAddress
@@ -3003,8 +2889,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
             "The type of the IP next hop address."
     ::= { isisIPRAEntry 5 }
 
-
-
     isisIPRANextHop OBJECT-TYPE
         SYNTAX InetAddress
         MAX-ACCESS read-create
@@ -3053,8 +2937,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
         DESCRIPTION
             "The administrative state of the IP Reachable Address.  This
              object follows the IsisAdminState and ManualOrAutomatic
-
-
 
              behaviors."
         DEFVAL { off }
@@ -3105,8 +2987,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
         DEFVAL { ''H }
     ::= { isisIPRAEntry 13 }
 
-
-
     isisIPRASourceType OBJECT-TYPE
         SYNTAX INTEGER
             {
@@ -3155,8 +3035,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
     ::= { isisLSPSummaryTable 1 }
 
     IsisLSPSummaryEntry ::=
-
-
 
         SEQUENCE {
             isisLSPLevel
@@ -3207,8 +3085,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
         STATUS current
         DESCRIPTION
 
-
-
             "Is this LSP being purged by this system?"
     ::= { isisLSPSummaryEntry 4 }
 
@@ -3257,8 +3133,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
         SYNTAX SEQUENCE OF IsisLSPTLVEntry
         MAX-ACCESS not-accessible
         STATUS current
-
-
 
         DESCRIPTION
             "The table of LSPs in the database."
@@ -3309,8 +3183,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
         MAX-ACCESS read-only
         STATUS current
 
-
-
         DESCRIPTION
             "The sequence number for this LSP."
     ::= { isisLSPTLVEntry 2 }
@@ -3347,7 +3219,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
             "The value of this TLV."
     ::= { isisLSPTLVEntry 6 }
 
-
 -- The IS-IS Notification Table
 
 -- The IS-IS Notification Table records fields that are
@@ -3359,8 +3230,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
     isisNotificationSysLevelIndex OBJECT-TYPE
         SYNTAX IsisLevel
         MAX-ACCESS accessible-for-notify
-
-
 
         STATUS current
         DESCRIPTION
@@ -3411,8 +3280,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
              we received."
     ::= { isisNotificationEntry 6 }
 
-
-
     isisPduProtocolVersion OBJECT-TYPE
         SYNTAX IsisUnsigned8TC
         MAX-ACCESS accessible-for-notify
@@ -3461,8 +3328,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
     isisAdjState OBJECT-TYPE
         SYNTAX INTEGER
             {
-
-
 
                  down (1),
                  initializing (2),
@@ -3513,8 +3378,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
             isisSysLevelState
         }
 
-
-
         STATUS current
         DESCRIPTION
             "This notification is generated when the system
@@ -3562,9 +3425,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
              knowledge of the ID, but in some implementations
              there is a chance that the ID itself will be
              corrupted."
-
-
-
 
     ::= { isisNotifications 3 }
 
@@ -3615,8 +3475,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
     isisMaxAreaAddressesMismatch NOTIFICATION-TYPE
         OBJECTS {
 
-
-
             isisNotificationSysLevelIndex,
             isisPduMaxAreaAddress,
             isisNotificationCircIfIndex,
@@ -3665,8 +3523,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
             isisPduLspId
         }
         STATUS current
-
-
 
         DESCRIPTION
             "When we receive an LSP with our System ID
@@ -3717,8 +3573,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
              of the packet, which may help a network manager
              identify the source of the confusion.
 
-
-
              The agent must throttle the generation of
              consecutive isisAuthenticationFailure
              notifications so that there is at least a 5-second
@@ -3766,9 +3620,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
              the header of the packet, which may help a
              network manager identify the source of the
              confusion.
-
-
-
 
              The agent must throttle the generation of
              consecutive isisAreaMismatch notifications
@@ -3819,8 +3670,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
              between notifications of this type.  When
              notifications are throttled, they are dropped, not
 
-
-
              queued for sending at a future time."
 
     ::= { isisNotifications 14 }
@@ -3869,8 +3718,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
              does not generate the field, or because there are no
              common elements.  The list of protocols supported
              should be included in the notification: it may be
-
-
 
              empty if the TLV is not supported, or if the
              TLV is empty.
@@ -3921,8 +3768,6 @@ isisNotification OBJECT IDENTIFIER ::= { isisObjects 10 }
              If the problem is a malformed TLV, isisErrorOffset
              points to the start of the TLV, and isisErrorTLVType
 
-
-
              holds the value of the type.
 
              If the problem is with the LSP header, isisErrorOffset
@@ -3971,8 +3816,6 @@ isisGroups      OBJECT IDENTIFIER ::= { isisConformance 2 }
              --    Redistribution Addresses and anticipates
              --    the support of IPv6 addresses."
              --
-
-
 
              --
              -- OBJECT isisISAdjIPAddrType
@@ -4023,8 +3866,6 @@ isisGroups      OBJECT IDENTIFIER ::= { isisConformance 2 }
              --    Redistribution Addresses and anticipates
              --    the support of IPv6 addresses."
 
-
-
              --
              --
              -- OBJECT isisISAdjIPAddrType
@@ -4074,8 +3915,6 @@ isisGroups      OBJECT IDENTIFIER ::= { isisConformance 2 }
                 implementation can claim read-only compliance.  Such
                 a device can then be monitored but cannot be
 
-
-
                 configured with this MIB."
        MODULE -- this module
             MANDATORY-GROUPS {
@@ -4123,9 +3962,6 @@ isisGroups      OBJECT IDENTIFIER ::= { isisConformance 2 }
        MIN-ACCESS read-only
        DESCRIPTION
             "Write access is not required."
-
-
-
 
        OBJECT isisSysMaxAge
        MIN-ACCESS read-only
@@ -4176,8 +4012,6 @@ isisGroups      OBJECT IDENTIFIER ::= { isisConformance 2 }
        MIN-ACCESS read-only
        DESCRIPTION
 
-
-
             "Write access is not required."
 
        OBJECT isisSummAddrExistState
@@ -4226,8 +4060,6 @@ isisGroups      OBJECT IDENTIFIER ::= { isisConformance 2 }
             "Write access is not required."
 
        OBJECT isisCircPassiveCircuit
-
-
 
        MIN-ACCESS read-only
        DESCRIPTION
@@ -4278,8 +4110,6 @@ isisGroups      OBJECT IDENTIFIER ::= { isisConformance 2 }
        DESCRIPTION
             "Write access is not required."
 
-
-
        OBJECT isisCircLevelHelloMultiplier
        MIN-ACCESS read-only
        DESCRIPTION
@@ -4328,8 +4158,6 @@ isisGroups      OBJECT IDENTIFIER ::= { isisConformance 2 }
             isisSysMaxLSPGenInt,
             isisSysPollESHelloRate,
             isisSysWaitTime,
-
-
 
             isisSysAdminState,
             isisSysL2toL1Leaking,
@@ -4380,8 +4208,6 @@ isisGroups      OBJECT IDENTIFIER ::= { isisConformance 2 }
             isisCircType,
             isisCircExtDomain,
 
-
-
             isisCircLevelType,
             isisCircAdjChanges,
             isisCircNumAdj,
@@ -4431,8 +4257,6 @@ isisGroups      OBJECT IDENTIFIER ::= { isisConformance 2 }
             isisISAdjUsage,
             isisISAdjHoldTimer,
 
-
-
             isisISAdjNeighPriority,
             isisISAdjLastUpTime,
             isisISAdjAreaAddress,
@@ -4469,7 +4293,6 @@ isisGroups      OBJECT IDENTIFIER ::= { isisConformance 2 }
             "The objects used to record notification parameters."
     ::= { isisGroups 4 }
 
-
     isisNotificationGroup        NOTIFICATION-GROUP
         NOTIFICATIONS {
             isisDatabaseOverload,
@@ -4481,8 +4304,6 @@ isisGroups      OBJECT IDENTIFIER ::= { isisConformance 2 }
             isisOwnLSPPurge,
             isisSequenceNumberSkip,
             isisAuthenticationTypeFailure,
-
-
 
             isisAuthenticationFailure,
             isisVersionSkew,
@@ -4499,7 +4320,6 @@ isisGroups      OBJECT IDENTIFIER ::= { isisConformance 2 }
             "The collections of notifications sent by an IS."
     ::= { isisGroups 5 }
 
-
     isisISPDUCounterGroup OBJECT-GROUP
         OBJECTS {
             isisPacketCountIIHello,
@@ -4514,7 +4334,6 @@ isisGroups      OBJECT IDENTIFIER ::= { isisConformance 2 }
         DESCRIPTION
             "The collections of objects used to count protocol PDUs."
     ::= { isisGroups 6 }
-
 
     isisRATableGroup OBJECT-GROUP
         OBJECTS {
@@ -4533,11 +4352,8 @@ isisGroups      OBJECT IDENTIFIER ::= { isisConformance 2 }
         DESCRIPTION
             "The collections of objects used to manage the
 
-
-
              reachable NSAP prefixes."
     ::= { isisGroups 7 }
-
 
     isisISIPRADestGroup OBJECT-GROUP
         OBJECTS {
@@ -4579,3 +4395,5 @@ isisGroups      OBJECT IDENTIFIER ::= { isisConformance 2 }
     ::= { isisGroups 9 }
 
 END
+
+
